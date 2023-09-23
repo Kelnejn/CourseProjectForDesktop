@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfNetworkTestService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_SearchCallback_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCallback" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SearchCallback_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCallbackResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SearchCallback_StringFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" name="detail" element="q1:string" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StopSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopSearch" />
+  </wsdl:message>
+  <wsdl:message name="IService1_StopSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserLogIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogIn" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserLogIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserSignUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserSignUp" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserSignUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserSignUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserLogOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogOut" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UserLogOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersOnline_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersOnline" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUsersOnline_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersOnlineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateAdminStatusTrue_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdminStatusTrue" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateAdminStatusTrue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdminStatusTrueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateAdminStatusFalse_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdminStatusFalse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateAdminStatusFalse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdminStatusFalseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TestIsPassed_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestIsPassed" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TestIsPassed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestIsPassedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendSearchResult_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendSearchResult" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SendSearchResult_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SendSearchResultResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="SearchCallback">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SearchCallback" message="tns:IService1_SearchCallback_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SearchCallbackResponse" message="tns:IService1_SearchCallback_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/SearchCallbackStringFault" name="StringFault" message="tns:IService1_SearchCallback_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/StopSearch" message="tns:IService1_StopSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/StopSearchResponse" message="tns:IService1_StopSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UserLogIn" message="tns:IService1_UserLogIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UserLogInResponse" message="tns:IService1_UserLogIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserSignUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UserSignUp" message="tns:IService1_UserSignUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UserSignUpResponse" message="tns:IService1_UserSignUp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserLogOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UserLogOut" message="tns:IService1_UserLogOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UserLogOutResponse" message="tns:IService1_UserLogOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUser" message="tns:IService1_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserResponse" message="tns:IService1_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAdmin" message="tns:IService1_GetAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAdminResponse" message="tns:IService1_GetAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnline">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUsersOnline" message="tns:IService1_GetUsersOnline_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUsersOnlineResponse" message="tns:IService1_GetUsersOnline_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminStatusTrue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateAdminStatusTrue" message="tns:IService1_UpdateAdminStatusTrue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateAdminStatusTrueResponse" message="tns:IService1_UpdateAdminStatusTrue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminStatusFalse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateAdminStatusFalse" message="tns:IService1_UpdateAdminStatusFalse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateAdminStatusFalseResponse" message="tns:IService1_UpdateAdminStatusFalse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestIsPassed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TestIsPassed" message="tns:IService1_TestIsPassed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TestIsPassedResponse" message="tns:IService1_TestIsPassed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSearchResult">
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SendSearchResult" message="tns:IService1_SendSearchResult_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SendSearchResultResponse" message="tns:IService1_SendSearchResult_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#NetTcpBinding_IService1_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SearchCallback">
+      <soap12:operation soapAction="http://tempuri.org/IService1/SearchCallback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StringFault">
+        <soap12:fault use="literal" name="StringFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StopSearch">
+      <soap12:operation soapAction="http://tempuri.org/IService1/StopSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogIn">
+      <soap12:operation soapAction="http://tempuri.org/IService1/UserLogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserSignUp">
+      <soap12:operation soapAction="http://tempuri.org/IService1/UserSignUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserLogOut">
+      <soap12:operation soapAction="http://tempuri.org/IService1/UserLogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersOnline">
+      <soap12:operation soapAction="http://tempuri.org/IService1/GetUsersOnline" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminStatusTrue">
+      <soap12:operation soapAction="http://tempuri.org/IService1/UpdateAdminStatusTrue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdminStatusFalse">
+      <soap12:operation soapAction="http://tempuri.org/IService1/UpdateAdminStatusFalse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestIsPassed">
+      <soap12:operation soapAction="http://tempuri.org/IService1/TestIsPassed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSearchResult">
+      <soap12:operation soapAction="http://tempuri.org/IService1/SendSearchResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="NetTcpBinding_IService1" binding="tns:NetTcpBinding_IService1">
+      <soap12:address location="net.tcp://localhost:8733/Design_Time_Addresses/WcfNetworkTestService/Service1/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8733/Design_Time_Addresses/WcfNetworkTestService/Service1/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
